@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)= "gonder()">
+    <label for="name">Name: </label>
+    <input formControlName="name" type="text" placeholder="Your name">
+    <div *ngIf="form.get('name').touched && form.get('name').invalid">
+        <div *ngIf="form.get('name').errors.required">Name is required</div>
+        <div *ngIf="form.get('name').errors.minlength">Name should be minimum 6 characters</div>
+        <div *ngIf="form.get('name').errors.pattern">You can not use special characters</div>
+    </div>
+    <br>
+    <br>
+    <label for="password">Password: </label>
+    <input formControlName="password" type="password" placeholder="Your last name">
+    <div *ngIf="form.get('password').touched && form.get('password').invalid">
+        <div *ngIf="form.get('password').errors.required">Password is required</div>
+        <div *ngIf="form.get('password').errors.minlength">password should be minimum 6 characters</div>
+
+    </div>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+</form>
